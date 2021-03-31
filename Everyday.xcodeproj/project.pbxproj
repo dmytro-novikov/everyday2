@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3201440B2614E67A007B34C9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201440A2614E67A007B34C9 /* NetworkManager.swift */; };
 		32412ABB2613875B00B30CAC /* EverydayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32412ABA2613875B00B30CAC /* EverydayApp.swift */; };
 		32412ABD2613875B00B30CAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32412ABC2613875B00B30CAC /* ContentView.swift */; };
 		32412ABF2613875D00B30CAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32412ABE2613875D00B30CAC /* Assets.xcassets */; };
 		32412AC22613875D00B30CAC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32412AC12613875D00B30CAC /* Preview Assets.xcassets */; };
+		32412ACD26138CD700B30CAC /* UN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32412ACC26138CD700B30CAC /* UN.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3201440A2614E67A007B34C9 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		32412AB72613875B00B30CAC /* Everyday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Everyday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32412ABA2613875B00B30CAC /* EverydayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EverydayApp.swift; sourceTree = "<group>"; };
 		32412ABC2613875B00B30CAC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		32412ABE2613875D00B30CAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32412AC12613875D00B30CAC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		32412AC32613875D00B30CAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32412ACC26138CD700B30CAC /* UN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UN.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,10 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				32412ABA2613875B00B30CAC /* EverydayApp.swift */,
+				3201440A2614E67A007B34C9 /* NetworkManager.swift */,
 				32412ABC2613875B00B30CAC /* ContentView.swift */,
 				32412ABE2613875D00B30CAC /* Assets.xcassets */,
 				32412AC32613875D00B30CAC /* Info.plist */,
 				32412AC02613875D00B30CAC /* Preview Content */,
+				32412ACC26138CD700B30CAC /* UN.swift */,
 			);
 			path = Everyday;
 			sourceTree = "<group>";
@@ -138,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3201440B2614E67A007B34C9 /* NetworkManager.swift in Sources */,
 				32412ABD2613875B00B30CAC /* ContentView.swift in Sources */,
 				32412ABB2613875B00B30CAC /* EverydayApp.swift in Sources */,
+				32412ACD26138CD700B30CAC /* UN.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +285,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ua.everyday.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.novikov.everyday2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -299,7 +307,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ua.everyday.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.novikov.everyday2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
