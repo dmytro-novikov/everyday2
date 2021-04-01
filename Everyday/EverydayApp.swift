@@ -8,7 +8,7 @@ import NotificationCenter
 struct EverydayApp: App {
     @Environment(\.scenePhase) var scenePhase
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    //@ObservedObject var networkManager = NetworkManager()
+    
     
     
     var body: some Scene {
@@ -18,21 +18,21 @@ struct EverydayApp: App {
                     switch phase {
                     case .active:
                         NSLog("ScenePhase: active")
-                      //  networkManager.isProgressShowing=false
+                        
                     case .background:
                         NSLog("ScenePhase: background")
-                    //  UN.scheduleNotification(notificationType: "ScenePhase: background")
+                        
                         
                     case .inactive: NSLog("ScenePhase: inactive")
                     @unknown default: NSLog("ScenePhase: unexpected state")
-                    //  UN.scheduleNotification(notificationType: "SScenePhase: unexpected state")
+                        
                     }
                 }
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
                     NSLog("To the background!")
                     appDelegate.cancelAllPandingBGTask()
                     appDelegate.scheduleAppProcessing()
-                   // appDelegate.scheduleAppRefresh()
+                    
                 }
         }
     }
@@ -41,12 +41,12 @@ struct EverydayApp: App {
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-        
+    
     @ObservedObject var unDelegate = UN()
-        
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         NSLog("didFinishLaunchingWithOptions")
-      //  print("didFinishLaunchingWithOptions")
+        //  print("didFinishLaunchingWithOptions")
         
         registerBackgroundTaks()
         
@@ -54,30 +54,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         UN.appRequestAuthorization()
         UNUserNotificationCenter.current().delegate = unDelegate
         
-       // UN.scheduleNotification(notificationType: "initFinished")
+        
         return true
     }
     
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        
-        //NSLog("applicationDidEnterBackground")
-    
-    }
-    
-    func applicationWillResignActive(_ application: UIApplication) {
-        NSLog("applicationWillResignActive")
-    }
-
     
     private func registerBackgroundTaks() {
         BGTaskScheduler.shared.register(forTaskWithIdentifier: "ua.novikov.BGProcessingTask", using: nil) { task in
             self.handleAppProcessing(task: task as! BGProcessingTask)
         }
-        /*
-        BGTaskScheduler.shared.register(forTaskWithIdentifier: "test3.bgtasks.AppRefreshTask", using: nil) { task in
-            self.handleAppRefresh(task: task as! BGAppRefreshTask)
-        }
-        */
+        
     }
     
     func cancelAllPandingBGTask() {
@@ -85,19 +71,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
     
     
-    /*
-    func scheduleAppRefresh() {
-        let request = BGAppRefreshTaskRequest(identifier: "test3.bgtasks.AppRefreshTask")
-        // Fetch no earlier than 15 minutes from now
-        request.earliestBeginDate = Date(timeIntervalSinceNow: 15 * 60)
-        
-        do {
-            try BGTaskScheduler.shared.submit(request)
-        } catch {
-            NSLog("Could not schedule app refresh: \(error)")
-        }
-    }
-    */
     func scheduleAppProcessing() {
         // Command for simulation task
         // e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"ua.novikov.BGProcessingTask"]
@@ -136,22 +109,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func scheduleEventNotifications()
     {
         let curDate = Date()
-        let networkManager = NetworkManager()
+        let networkManager = NM()
         networkManager.getEventsAndSetNotifications(curDate: curDate)
     }
     
     
-    /*
-    func handleAppRefresh(task: BGAppRefreshTask) {
-        //Todo Work
-       
-        task.expirationHandler = {
-            //This Block call by System
-            //Canle your all tak's & queues
-        }
-        UN.scheduleNotification(notificationType: "handleAppRefresh")
-        //
-        task.setTaskCompleted(success: true)
-    }
- */
 }

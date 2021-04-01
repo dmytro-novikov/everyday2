@@ -18,7 +18,7 @@ func timeStringFromDateString (dateStr: String) -> String {
 struct ContentView: View {
     
     @State var curDate = Date()
-    @ObservedObject var networkManager = NetworkManager()
+    @ObservedObject var networkManager = NM()
     
     
    
@@ -58,7 +58,7 @@ struct ContentView: View {
         }.onAppear {
             self.networkManager.fetchData(curDate: curDate)
           
-           // self.networkManager.getEventsAndSetNotifications(curDate: curDate)
+           
         }
     }
 }
